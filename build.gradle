@@ -49,11 +49,11 @@ task test_suite(type: Test) {
     }
     task positive_tests(type: Test) {
         useJUnitPlatform {
-            includeTags("Позитивный тест")
+            includeTags("positive_test")
         }
         task negative_tests(type: Test) {
             useJUnitPlatform {
-                includeTags("Негативный тест")
+                includeTags("negative_test")
             }
         }
     }

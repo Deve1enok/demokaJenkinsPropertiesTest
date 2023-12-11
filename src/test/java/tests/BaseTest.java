@@ -22,6 +22,7 @@ public class BaseTest {
         Configuration.browserVersion = System.getProperty("browserVersion", "120.0");
 
 
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,

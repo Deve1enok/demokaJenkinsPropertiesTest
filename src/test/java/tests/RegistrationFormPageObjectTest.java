@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationFormPage;
 import utils.DataUser;
-@Tag("Все тесты с параметрами")
+@Tag("demoqa_properties_test")
 @Feature("Форма регистрации студента DemoQa")
 @DisplayName("Заполнение формы регистрации студента DemoQa")
 public class RegistrationFormPageObjectTest extends BaseTest {
@@ -17,7 +17,7 @@ public class RegistrationFormPageObjectTest extends BaseTest {
     DataUser fakerData = new DataUser();
 
     @Test
-    @Tag("Позитивный тест")
+    @Tag("positive_test")
     @DisplayName("Регистрация с валидными данными во всех полях")
     @Story("Позитивные тесты")
     void registrationForm() {
@@ -55,7 +55,7 @@ public class RegistrationFormPageObjectTest extends BaseTest {
                 .checkForm(fakerData.fieldStateAndCity, fakerData.getCity);
     }
     @Test
-    @Tag("Позитивный тест")
+    @Tag("positive_test")
     @DisplayName("Регистрация с минимально допустимыми значениями в допустимых полях")
     @Story("Позитивные тесты")
     void minimalFieldsData() {
@@ -76,7 +76,7 @@ public class RegistrationFormPageObjectTest extends BaseTest {
 
     }
     @Test
-    @Tag("Негативный тест")
+    @Tag("negative_test")
     @DisplayName("Регистрация с пустым полем \"имя\"")
     @Story("Негативные тесты")
     void negativeTestData() {
