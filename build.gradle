@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.19.0")
+            }
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:6.19.1",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            'org.slf4j:slf4j-simple:2.0.7',
+            'io.qameta.allure:allure-selenide:2.19.0',
+            "com.github.javafaker:javafaker:1.0.2"
+    )
+}
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+task test_suite(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa_properties_test")
+    }
+    task positive_tests(type: Test) {
+        useJUnitPlatform {
+            includeTags("Позитивный тест")
+        }
+        task negative_tests(type: Test) {
+            useJUnitPlatform {
+                includeTags("Негативный тест")
+            }
+        }
+    }
+}
