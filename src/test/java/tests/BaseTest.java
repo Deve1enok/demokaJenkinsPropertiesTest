@@ -16,8 +16,8 @@ public class BaseTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.remote = System.getProperty("selenoid", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
+        Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browserVersion = System.getProperty("browserVersion", "120.0");
 
