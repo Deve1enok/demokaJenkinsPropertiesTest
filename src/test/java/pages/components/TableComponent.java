@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class TableComponent {
-    private final static SelenideElement tableResult = $(".table-responsive");
+    private final SelenideElement tableResult = $(".table-responsive");
 
 
     public void  checkResult (String key, String value) {
